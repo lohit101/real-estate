@@ -84,7 +84,7 @@ export default function Listings() {
   };
 
   return (
-    <Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
       <Navbar />
       <div className="container mx-auto px-4 py-20 pt-28">
         <div className="flex px-20">

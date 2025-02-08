@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { SearchIcon } from "lucide-react";
+import { LoaderCircle, SearchIcon } from "lucide-react";
 
 const commercialTypes = ["Food Court", "Office Space", "Retail Shops", "Multiplex"];
 const residentialTypes = ["Apartment", "House", "Villa", "Studio"];
@@ -11,6 +11,7 @@ const amenitiesList = ["Parking", "Gym", "Swimming Pool", "Security", "Play Area
 
 export default function Search() {
     const router = useRouter();
+    const [loading, setLoading] = useState(false);
     const [category, setCategory] = useState("");
     const [type, setType] = useState("");
     const [city, setCity] = useState("");
@@ -137,8 +138,12 @@ export default function Search() {
                         </div>
                     </div>
                 </div>
-                <button type="submit" className="flex items-center justify-center h-full w-max aspect-square bg-black text-white font-semibold shadow-sm hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-all duration-500">
-                    <SearchIcon size={40} strokeWidth={2} />
+                <button onClick={() => setLoading(true)} type="submit" className="flex items-center justify-center h-full w-max aspect-square bg-black text-white font-semibold shadow-sm hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-all duration-500">
+                    {loading ?
+                        <LoaderCircle size={40} strokeWidth={2} className="animate-spin" />
+                        :
+                        <SearchIcon size={40} strokeWidth={2} />
+                    }
                 </button>
             </form>
         </div>
