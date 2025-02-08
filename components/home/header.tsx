@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
 import { Card, CardContent } from "../ui/card";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Search from "./search";
 
 export default function Header() {
@@ -30,7 +30,9 @@ export default function Header() {
             <div className="absolute z-50 top-1/4 flex sm:flex w-full">
                 <div className="flex flex-col gap-5 sm:gap-10 mx-auto w-2/3">
                     <h1 className="text-white text-3xl sm:text-[3rem] font-medium drop-shadow-lg text-center sm:text-start">Find your dream property today</h1>
-                    <Search />
+                    <Suspense>
+                        <Search />
+                    </Suspense>
                 </div>
             </div>
 
