@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { supabase } from "@/lib/supabase";
 import Link from "next/link";
@@ -84,7 +84,7 @@ export default function Listings() {
   };
 
   return (
-    <>
+    <Suspense>
       <Navbar />
       <div className="container mx-auto px-4 py-20 pt-28">
         <div className="flex px-20">
@@ -170,6 +170,6 @@ export default function Listings() {
           </div>
         )}
       </div>
-    </>
+    </Suspense>
   );
 }
