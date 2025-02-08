@@ -41,9 +41,9 @@ export default function Search() {
 
     return (
         <div className="flex p-3 mx-auto bg-white/30 backdrop-blur-md w-full shadow-lg">
-            <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-5 mx-auto py-3 px-3 pl-6 bg-white w-full shadow-lg">
+            <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-5 mx-auto py-3 px-3 sm:pl-6 bg-white w-full shadow-lg">
                 <div className="flex flex-col gap-5 w-full">
-                    <div className="flex gap-3 w-full">
+                    <div className="flex flex-col sm:flex-row gap-3 w-full">
                         <select
                             id="category"
                             name="category"
@@ -94,7 +94,7 @@ export default function Search() {
                             ))}
                         </select>
                     </div>
-                    <div className="flex gap-5 w-full">
+                    <div className="flex flex-col-reverse sm:flex-row gap-5 w-full">
                         <div className="flex flex-col gap-2">
                             <label htmlFor="amenities" className="block text-sm font-semibold text-gray-700">Amenities</label>
                             <div className="mt-1 flex flex-wrap sm:flex-nowrap gap-1">
@@ -138,12 +138,29 @@ export default function Search() {
                         </div>
                     </div>
                 </div>
-                <button onClick={() => setLoading(true)} type="submit" className="flex items-center justify-center h-full w-max aspect-square bg-black text-white font-semibold shadow-sm hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-all duration-500">
-                    {loading ?
-                        <LoaderCircle size={40} strokeWidth={2} className="animate-spin" />
-                        :
-                        <SearchIcon size={40} strokeWidth={2} />
-                    }
+                <button onClick={() => setLoading(true)} type="submit" className="flex items-center justify-center h-max sm:h-full w-full sm:w-max sm:aspect-square bg-black text-white font-semibold p-3 sm:p-0 shadow-sm hover:bg-black/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-all duration-500">
+                    {/* Button for desktop */}
+                    <div className="hidden sm:flex">
+                        {loading ?
+                            <LoaderCircle size={40} strokeWidth={2} className="animate-spin" />
+                            :
+                            <SearchIcon size={40} strokeWidth={2} />
+                        }
+                    </div>
+
+                    {/* Button for mobile */}
+                    <div className="flex sm:hidden gap-2">
+                        {loading ?
+                            <LoaderCircle size={25} strokeWidth={2.5} className="animate-spin" />
+                            :
+                            <SearchIcon size={25} strokeWidth={2.5} />
+                        }
+                        {loading ?
+                            <p className="text-xl font-medium">Searching...</p>
+                            :
+                            <p className="text-xl font-medium">Search</p>
+                        }
+                    </div>
                 </button>
             </form>
         </div>
