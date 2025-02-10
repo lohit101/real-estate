@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
-import { User } from "@supabase/auth-helpers-nextjs";
 import { LoaderCircle, MapPinHouse, Pencil, Trash2 } from "lucide-react";
 import { formatIndianPrice } from "@/lib/formatIndianPrice";
 import Link from "next/link";
@@ -34,7 +33,6 @@ export default function AdminPage({ tab }: AdminPageProps) {
   const [listings, setListings] = useState<Listing[]>([]);
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState(true);
-  const activeTab = tab;
   const router = useRouter();
 
   useEffect(() => {
@@ -60,28 +58,13 @@ export default function AdminPage({ tab }: AdminPageProps) {
 
   return (
     <div className="p-6 w-full">
-      {/* <div className="mt-4">
-        <button
-          onClick={() => setActiveTab("listings")}
-          className={`px-4 py-2 ${activeTab === "listings" ? "bg-blue-500 text-white" : "bg-gray-200 text-black"} rounded`}
-        >
-          Listings
-        </button>
-        <button
-          onClick={() => setActiveTab("messages")}
-          className={`ml-2 px-4 py-2 ${activeTab === "messages" ? "bg-blue-500 text-white" : "bg-gray-200 text-black"} rounded`}
-        >
-          Messages
-        </button>
-      </div> */}
-      {activeTab === "listings" && (
+      {tab === "listings" && (
         loading ? (
           <div className="flex items-center justify-center w-full min-h-96">
             <LoaderCircle size={20} className="animate-spin" />
           </div>
         ) : (
           <div className="grid grid-cols-3 gap-8">
-            {/* Featured listing cards */}
             {listings.filter(listing => listing.is_featured).map((listing) => (
               <div key={listing.id} className="min-w-80 sm:min-w-96 max-w-80 sm:max-w-96 transition-all">
                 <img src={listing.image_urls[0]} alt={listing.title} className="w-full h-60 object-cover rounded-lg" />
@@ -115,7 +98,7 @@ export default function AdminPage({ tab }: AdminPageProps) {
           </div>
         )
       )}
-      {activeTab === "messages" && (
+      {tab === "messages" && (
         <div className="mt-4 w-full">
           <h2 className="text-xl font-bold">Messages</h2>
           <div className="grid grid-cols-1 gap-6 mt-4">
