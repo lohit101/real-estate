@@ -1,6 +1,7 @@
 // "use client";
 
 import Cta from "@/components/common/cta";
+import Footer from "@/components/common/footer";
 import GetinTouchModal from "@/components/common/getintouch";
 import Categories from "@/components/home/categories";
 import { Faq } from "@/components/home/faq";
@@ -20,6 +21,7 @@ export default function Home() {
       <Cta />
       <Categories />
       <Faq />
+      <Footer />
     </div>
   )
 }

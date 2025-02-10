@@ -12,6 +12,7 @@ type Listing = {
     title: string;
     type: string;
     price: number;
+    description: string;
     image_urls: string[];
     city: string;
     bedrooms: number;
@@ -44,7 +45,7 @@ export default function Featured() {
                     </Link>
                 </div>
                 <div className="flex w-full sm:w-1/2">
-                    <p className="text-zinc-500">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate quidem necessitatibus error. Eveniet vero quis officiis dolor suscipit provident rerum distinctio asperiores vitae exercitationem. Voluptatem nesciunt rem non quod ducimus!</p>
+                    <p className="text-zinc-500">Discover the most sought-after properties in our collection, featuring top-rated listings that are highly favored by our clients.</p>
                 </div>
             </div>
 
@@ -74,6 +75,9 @@ export default function Featured() {
                                     <p className="text-xs text-zinc-500">Starting from</p>
                                     <p className="text-black font-semibold">&#8377;{formatIndianPrice(listing.price)}</p>
                                 </div>
+                            </div>
+                            <div className="flex opacity-100 translate-y-0 group-hover:opacity-0 group-hover:-translate-y-5 transition-all duration-250 delay-500 group-hover:delay-0">
+                                <p className="text-xs text-zinc-700 font-medium w-max overflow-hidden text-ellipsis">{listing.description}</p>
                             </div>
                             <div className="flex flex-row gap-2 py-1">
                                 <div className="flex flex-col opacity-0 translate-y-5 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100">

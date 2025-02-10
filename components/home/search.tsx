@@ -4,10 +4,16 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { LoaderCircle, SearchIcon } from "lucide-react";
 
-const commercialTypes = ["Food Court", "Office Space", "Retail Shops", "Multiplex"];
+const commercialTypes = ["Food Court", "Office Space", "Retail Shops", "Multiplex", "Service Apartment", "Restaurant"];
 const residentialTypes = ["Apartment", "House", "Villa", "Studio"];
-const cities = ["Delhi", "Mumbai", "Bangalore", "Chennai", "Kolkata", "Other"];
+const cities = ["Gurgaon", "Sohna", "Dwarka", "Delhi", "Jhajjar", "Kharkhoda"];
 const amenitiesList = ["Parking", "Gym", "Swimming Pool", "Security", "Play Area"];
+const priceRanges = [
+    { label: "40Lacs - 1Cr", value: [4000000, 10000000] },
+    { label: "1Cr - 2Cr", value: [10000000, 20000000] },
+    { label: "2Cr - 5Cr", value: [20000000, 50000000] },
+    { label: "5Cr - 10Cr", value: [50000000, 100000000] },
+];
 
 export default function Search() {
     const router = useRouter();
@@ -15,7 +21,7 @@ export default function Search() {
     const [category, setCategory] = useState("");
     const [type, setType] = useState("");
     const [city, setCity] = useState("");
-    const [priceRange, setPriceRange] = useState([0, 100000000]);
+    const [priceRange, setPriceRange] = useState<number[]>([0, 100000000]);
     const [amenities, setAmenities] = useState<string[]>([]);
 
     const handleSearch = (e: React.FormEvent) => {
@@ -112,29 +118,22 @@ export default function Search() {
                             </div>
                         </div>
 
-                        <div className="flex flex-col gap-2">
+                        <div className="flex flex-col gap-2 w-full">
                             <label htmlFor="price" className="block text-sm font-semibold text-gray-700">Price Range</label>
-                            <div className="flex items-center gap-2">
-                                <input
-                                    type="number"
-                                    id="minPrice"
-                                    name="minPrice"
-                                    value={priceRange[0]}
-                                    onChange={(e) => setPriceRange([Number(e.target.value), priceRange[1]])}
-                                    className="block w-full p-2 border border-gray-300 rounded-full shadow-sm focus:ring-black focus:border-black sm:text-sm"
-                                    placeholder="Min Price"
-                                />
-                                <p className="font-semibold text-black/50">-</p>
-                                <input
-                                    type="number"
-                                    id="maxPrice"
-                                    name="maxPrice"
-                                    value={priceRange[1]}
-                                    onChange={(e) => setPriceRange([priceRange[0], Number(e.target.value)])}
-                                    className="block w-full p-2 border border-gray-300 rounded-full shadow-sm focus:ring-black focus:border-black sm:text-sm"
-                                    placeholder="Max Price"
-                                />
-                            </div>
+                            <select
+                                id="price"
+                                name="price"
+                                value={priceRange.join("-")}
+                                onChange={(e) => setPriceRange(priceRanges.find(range => range.label === e.target.value)?.value || [0, 100000000])}
+                                className="block w-full p-2 border border-gray-300 rounded-full shadow-sm focus:ring-black focus:border-black sm:text-sm"
+                            >
+                                <option value="">Select Price Range</option>
+                                {priceRanges.map((range) => (
+                                    <option key={range.label} value={range.label}>
+                                        {range.label}
+                                    </option>
+                                ))}
+                            </select>
                         </div>
                     </div>
                 </div>

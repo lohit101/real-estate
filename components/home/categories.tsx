@@ -102,7 +102,7 @@ export default function Categories() {
                 </div>
                 <div className="flex w-full sm:w-1/2">
                     <p className="text-zinc-500">
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate quidem necessitatibus error. Eveniet vero quis officiis dolor suscipit provident rerum distinctio asperiores vitae exercitationem. Voluptatem nesciunt rem non quod ducimus!
+                    Explore a diverse range of property categories to find the perfect match for your needs, from residential to commercial spaces.
                     </p>
                 </div>
             </div>

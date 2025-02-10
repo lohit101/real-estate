@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter, useParams } from "next/navigation";
 
-const commercialTypes = ["Food Court", "Office Space", "Retail Shops", "Multiplex"];
+const commercialTypes = ["Food Court", "Office Space", "Retail Shops", "Multiplex", "Service Apartment", "Restaurant"];
 const residentialTypes = ["Apartment", "House", "Villa", "Studio"];
-const cities = ["Delhi", "Mumbai", "Bangalore", "Chennai", "Kolkata", "Other"];
+const cities = ["Gurgaon", "Sohna", "Dwarka", "Delhi", "Jhajjar", "Kharkhoda"];
 const furnishedOptions = ["Fully Furnished", "Semi-Furnished", "Unfurnished"];
 const amenitiesList = ["Parking", "Gym", "Swimming Pool", "Security", "Play Area"];
 
@@ -48,7 +48,7 @@ export default function EditListing() {
     }));
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value, type, checked } = e.target as HTMLInputElement;
     setListing((prevListing) => ({
       ...prevListing,
@@ -148,6 +148,9 @@ export default function EditListing() {
 
         <label>Featured Property</label>
         <input type="checkbox" name="is_featured" checked={listing.is_featured} onChange={handleInputChange} className="h-4 w-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500 mb-3" />
+
+        <label>Description</label>
+        <textarea name="description" value={listing.description} onChange={handleInputChange} className="w-full p-2 border rounded mb-3" required />
 
         <label>Images</label>
         <input type="file" multiple onChange={(e) => setNewImages(e.target.files)} className="w-full p-2 border rounded mb-3" />

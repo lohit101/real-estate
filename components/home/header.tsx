@@ -27,7 +27,7 @@ export default function Header() {
 
     return (
         <>
-            <div className="absolute z-50 top-1/4 flex sm:flex w-full">
+            <div className="absolute z-40 top-1/4 flex sm:flex w-full">
                 <div className="flex flex-col gap-5 sm:gap-10 mx-5 sm:mx-auto w-full sm:w-2/3">
                     <h1 className="text-white text-3xl sm:text-[3rem] font-medium drop-shadow-lg text-center sm:text-start">Find your dream property today</h1>
                     <Suspense>

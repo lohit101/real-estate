@@ -3,9 +3,9 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 
-const commercialTypes = ["Food Court", "Office Space", "Retail Shops", "Multiplex"];
+const commercialTypes = ["Food Court", "Office Space", "Retail Shops", "Multiplex", "Service Apartment", "Restaurant"];
 const residentialTypes = ["Apartment", "House", "Villa", "Studio"];
-const cities = ["Delhi", "Mumbai", "Bangalore", "Chennai", "Kolkata", "Other"];
+const cities = ["Gurgaon", "Sohna", "Dwarka", "Delhi", "Jhajjar", "Kharkhoda"];
 const furnishedOptions = ["Fully Furnished", "Semi-Furnished", "Unfurnished"];
 const amenitiesList = ["Parking", "Gym", "Swimming Pool", "Security", "Play Area"];
 
