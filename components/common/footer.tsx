@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Mail, Phone, Twitter } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -10,32 +10,32 @@ export default function Footer() {
                 <div className="flex flex-col gap-1 text-zinc-500 text-xs">
                     <p className="text-white mb-1 font-semibold w-max">Quick Access</p>
                     <a href="/" className="w-max hover:text-zinc-300 transition-all">Home</a>
-                    <a href="/" className="w-max hover:text-zinc-300 transition-all">Featured Properties</a>
+                    <a href="/listings" className="w-max hover:text-zinc-300 transition-all">Featured Properties</a>
                 </div>
                 <div className="flex flex-col gap-1 text-zinc-500 text-xs">
                     <p className="text-white mb-1 font-semibold w-max">Properties</p>
-                    <a href="/" className="w-max hover:text-zinc-300 transition-all">Commercial</a>
-                    <a href="/" className="w-max hover:text-zinc-300 transition-all">Residential</a>
-                    <a href="/" className="w-max hover:text-zinc-300 transition-all">Other</a>
+                    <a href="/listings?category=Commercial&type=&city=&minPrice=0&maxPrice=100000000&amenities=" className="w-max hover:text-zinc-300 transition-all">Commercial</a>
+                    <a href="/listings?category=Residential&type=&city=&minPrice=0&maxPrice=100000000&amenities=" className="w-max hover:text-zinc-300 transition-all">Residential</a>
+                    <a href="/listings" className="w-max hover:text-zinc-300 transition-all">Other</a>
                 </div>
                 <div className="flex flex-col gap-3">
-                    <a href="/" className="flex flex-row items-center gap-1">
+                    <a href="phone:7838445446" className="flex flex-row items-center gap-1">
                         <Phone size={12} />
-                        <p className="text-xs">+91 912-345-6789</p>
+                        <p className="text-xs">+91 783-844-5446</p>
                     </a>
-                    <a href="/" className="flex flex-row items-center gap-1">
+                    <a href="mailto:support@1o1realtor.com" className="flex flex-row items-center gap-1">
                         <Mail size={12} />
-                        <p className="text-xs">email@test.com</p>
+                        <p className="text-xs">support@1o1realtor.com</p>
                     </a>
                     <div className="flex flex-row items-center gap-2">
-                        <a href="/" className="group">
+                        <a href="https://www.instagram.com/1o1realtor/" className="group">
                             <Instagram size={18} className="text-zinc-500 group-hover:text-white transition-all" />
                         </a>
-                        <a href="/" className="group">
+                        <a href="https://www.facebook.com/p/1O1-Realtor-Pvt-Ltd-100064016206296/" className="group">
                             <Facebook size={18} className="text-zinc-500 group-hover:text-white transition-all" />
                         </a>
-                        <a href="/" className="group">
-                            <Twitter size={18} className="text-zinc-500 group-hover:text-white transition-all" />
+                        <a href="https://in.linkedin.com/company/1o1-realtor-pvt-ltd" className="group">
+                            <Linkedin size={18} className="text-zinc-500 group-hover:text-white transition-all" />
                         </a>
                     </div>
                 </div>
