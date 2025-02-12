@@ -19,7 +19,7 @@ export default function Footer() {
                     <a href="/listings" className="w-max hover:text-zinc-300 transition-all">Other</a>
                 </div>
                 <div className="flex flex-col gap-3">
-                    <a href="phone:7838445446" className="flex flex-row items-center gap-1">
+                    <a href="tel:7838445446" className="flex flex-row items-center gap-1">
                         <Phone size={12} />
                         <p className="text-xs">+91 783-844-5446</p>
                     </a>

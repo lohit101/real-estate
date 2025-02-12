@@ -9,8 +9,32 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "1o1 Realtor",
-  description: "Find your dream property",
+  title: "1o1 Realtor - Find Your Dream Property",
+  description: "Discover your dream property with 1o1 Realtor. Explore a wide range of residential and commercial properties tailored to your needs.",
+  keywords: "real estate, property, buy property, sell property, residential, commercial, realtor, 1o1 Realtor",
+  openGraph: {
+    title: "1o1 Realtor - Find Your Dream Property",
+    description: "Discover your dream property with 1o1 Realtor. Explore a wide range of residential and commercial properties tailored to your needs.",
+    url: "https://www.1o1realtor.com",
+    type: "website",
+    images: [
+      {
+        url: "https://www.1o1realtor.com/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "1o1 Realtor",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@1o1Realtor",
+    title: "1o1 Realtor - Find Your Dream Property",
+    description: "Discover your dream property with 1o1 Realtor. Explore a wide range of residential and commercial properties tailored to your needs.",
+    images: "https://www.1o1realtor.com/og-image.png",
+  },
+  robots: "index, follow",
+  viewport: "width=device-width, initial-scale=1",
 };
 
 export default function RootLayout({
