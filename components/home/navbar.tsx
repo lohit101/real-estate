@@ -49,9 +49,9 @@ export default function Navbar() {
             <img src='https://web.archive.org/web/20211205032847im_/http://www.1o1realtor.com/static/img/LogoWhite.png' alt="Logo" className={`h-5 sm:h-10 ${isScrolled ? 'invert' : ''} drop-shadow-md transition-all duration-500`} />
             {/* <div className="flex rounded-md w-12 h-12 aspect-square bg-zinc-900"></div> */}
 
-            <div className={`hidden sm:flex flex-col ${isScrolled ? 'w-0' : 'w-full'} overflow-hidden transition-all duration-1000`}>
-              <h1 className="text-xl whitespace-nowrap drop-shadow-md">1o1 Realtor</h1>
-              <p className="text-sm whitespace-nowrap drop-shadow-md">Find your perfect home</p>
+            <div className={`hidden sm:flex flex-col ${isScrolled ? 'w-[0%]' : 'w-[100%]'} overflow-hidden transition-all duration-1000`}>
+              <h1 className="text-xl whitespace-nowrap drop-shadow-md font-semibold">1o1 Realtor</h1>
+              <p className="text-xs whitespace-nowrap drop-shadow-md opacity-50">Find your perfect home</p>
             </div>
           </div>
         </a>
@@ -59,7 +59,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           {links.map((link) => (
             <div key={link.name} className="group hidden sm:flex flex-col">
-              <Link href={link.href}>
+              <Link href={link.href} className="text-sm drop-shadow-lg font-medium">
                 {link.name}
               </Link>
               <div className={`flex h-[1px] w-0 group-hover:w-full ${isScrolled ? 'bg-black' : 'bg-white'} transition-all duration-500`}></div>
