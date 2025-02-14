@@ -36,7 +36,7 @@ export default function Featured() {
 
     return (
         <div className="flex flex-col gap-8 overflow-hidden py-20 pb-0">
-            <div className="flex flex-col sm:flex-row sm:gap-10 px-5 sm:px-20">
+            <div className="flex flex-col sm:flex-row sm:gap-10">
                 <div className="flex flex-col w-1/2 gap-2">
                     <h2 className="text-4xl font-semibold">Popular Properties</h2>
                     <Link href={`/listings`} className="group flex flex-row gap-3 bg-black rounded-full my-3 py-2 px-4 hover:px-6 text-center text-sm transition-all duration-500 text-white w-max">
@@ -56,7 +56,7 @@ export default function Featured() {
                     <LoaderCircle size={20} className="animate-spin" />
                 </div>
             ) : (
-                <div className="flex flex-row gap-8 overflow-y-hidden overflow-x-auto whitespace-nowrap px-5 sm:px-28 py-10">
+                <div className="flex flex-row gap-8 overflow-y-hidden overflow-x-auto whitespace-nowrap px-5 sm:px-8 py-10">
                     {/* Featured listing cards */}
                     {listings.filter(listing => listing.is_featured).map((listing) => (
                         <div key={listing.id} className="group bg-white min-w-80 sm:min-w-96 max-w-80 sm:max-w-96 transition-all">

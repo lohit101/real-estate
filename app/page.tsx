@@ -16,7 +16,9 @@ export default function Home() {
       <Navbar />
       {/* <GetinTouchModal /> */}
       <Header />
-      <Featured />
+      <div className="flex sm:px-20">
+        <Featured />
+      </div>
       <Highlights />
       <Cta />
       <Categories />

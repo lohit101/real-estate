@@ -2,10 +2,10 @@ import { Facebook, Instagram, Linkedin, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
     return (
-        <div className="flex flex-col bg-black px-10 py-16 pb-5 text-white">
-            <div className="grid grid-cols-5">
-                <div className="flex col-span-2">
-                    <img src='https://web.archive.org/web/20211205032847im_/http://www.1o1realtor.com/static/img/LogoWhite.png' alt="Logo" className={`h-5 sm:h-10 drop-shadow-md transition-all duration-500`} />
+        <div className="flex flex-col bg-black p-6 sm:px-10 sm:py-16 pb-5 text-white">
+            <div className="grid grid-cols-1 sm:grid-cols-5 gap-4 sm:gap-0">
+                <div className="flex sm:col-span-2">
+                    <img src='https://web.archive.org/web/20211205032847im_/http://www.1o1realtor.com/static/img/LogoWhite.png' alt="Logo" className={`h-8 my-5 sm:my-0 sm:h-10 drop-shadow-md transition-all duration-500`} />
                 </div>
                 <div className="flex flex-col gap-1 text-zinc-500 text-xs">
                     <p className="text-white mb-1 font-semibold w-max">Quick Access</p>
@@ -41,7 +41,7 @@ export default function Footer() {
                 </div>
             </div>
             <div className="flex items-center justify-center border-t border-gray-500 pt-5 mt-5">
-                <p className="text-xs">&copy; 2025 1o1 Realtor Pvt. Ltd. All Rights Reserved</p>
+                <p className="text-xs text-white/50">&copy; 2025 1o1 Realtor Pvt. Ltd. All Rights Reserved</p>
             </div>
         </div>
     )
