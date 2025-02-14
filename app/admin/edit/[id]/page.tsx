@@ -30,6 +30,7 @@ export default function EditListing() {
     is_featured: false,
   });
   const [newImages, setNewImages] = useState<FileList | null>(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchListing = async () => {
@@ -58,6 +59,7 @@ export default function EditListing() {
 
   const handleUpdate = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
 
     let uploadedImages: string[] = [...listing.image_urls];
 
@@ -68,18 +70,24 @@ export default function EditListing() {
             .from("property-images")
             .upload(`properties/${id}/${file.name}`, file, { upsert: true });
 
-          return data ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${data.path}` : null;
+          return data ? `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/property-images/${data.path}` : null;
         })
       );
-      uploadedImages = [...uploadedImages, ...imageUploads.filter((img): img is string => img !== null)];
+      uploadedImages = [...imageUploads.filter((img): img is string => img !== null), ...uploadedImages];
     }
 
-    await supabase
+    const { error } = await supabase
       .from("listings")
       .update({ ...listing, image_urls: uploadedImages.slice(0, 10) }) // Limit to 10 images
       .eq("id", id);
 
-    router.push("/admin/dashboard");
+    if (error) {
+      console.error("Error updating listing:", error);
+    } else {
+      router.push("/admin/listings");
+    }
+
+    setLoading(false);
   };
 
   return (
@@ -155,7 +163,9 @@ export default function EditListing() {
         <label>Images</label>
         <input type="file" multiple onChange={(e) => setNewImages(e.target.files)} className="w-full p-2 border rounded mb-3" />
 
-        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded mt-4">Update</button>
+        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded mt-4" disabled={loading}>
+          {loading ? "Updating..." : "Update"}
+        </button>
       </form>
     </div>
   );

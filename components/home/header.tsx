@@ -36,9 +36,9 @@ export default function Header() {
                 </div>
             </div>
 
-            <div className={`relative flex h-[100vh] w-[100vw] bg-[#181818] overflow-hidden box-border transition-all ${isScrolled ? "p-10 pt-0 duration-1000" : "p-0 duration-500"}`}>
+            <div className={`relative flex h-[100vh] w-[100vw] bg-black overflow-hidden box-border transition-all ${isScrolled ? "p-10 pt-0 duration-1000" : "p-0 duration-500"}`}>
                 <img
-                    src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    src="https://images.unsplash.com/photo-1465804575741-338df8554e02?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                     alt="Background Image"
                     className={`w-full object-cover object-center transition-all duration-1000 ${isScrolled ? 'rounded-xl' : 'rounded-none'}`}
                 />
@@ -67,21 +67,21 @@ export default function Header() {
                 </Carousel> */}
             </div>
 
-            <div className="flex flex-row flex-wrap items-center justify-center gap-10 sm:gap-28 p-10 pb-20 bg-[#181818]">
+            <div className="flex flex-row flex-wrap items-center justify-center gap-10 sm:gap-28 p-10 pb-20 bg-black">
                 <div className="flex flex-col gap-1">
-                    <p className="text-5xl font-semibold text-white">18<span className="text-blue-400">K</span></p>
+                    <p className="text-5xl font-semibold text-white">18<span className="text-red-500">K</span></p>
                     <p className="text-white/60 text-sm">Renters</p>
                 </div>
                 <div className="flex flex-col gap-1">
-                    <p className="text-5xl font-semibold text-white">100<span className="text-blue-400">+</span></p>
+                    <p className="text-5xl font-semibold text-white">100<span className="text-red-500">+</span></p>
                     <p className="text-white/60 text-sm">Specialists</p>
                 </div>
                 <div className="flex flex-col gap-1">
-                    <p className="text-5xl font-semibold text-white">78<span className="text-blue-400">%</span></p>
+                    <p className="text-5xl font-semibold text-white">78<span className="text-red-500">%</span></p>
                     <p className="text-white/60 text-sm">Yearly Growth</p>
                 </div>
                 <div className="flex flex-col gap-1">
-                    <p className="text-5xl font-semibold text-white">10<span className="text-blue-400">K+</span></p>
+                    <p className="text-5xl font-semibold text-white">10<span className="text-red-500">K+</span></p>
                     <p className="text-white/60 text-sm">Properties</p>
                 </div>
             </div>

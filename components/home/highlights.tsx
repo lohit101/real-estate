@@ -40,11 +40,11 @@ export default function Highlights() {
       <h2 className="text-center text-[2.5rem] leading-tight font-bold text-[#0a1629] mb-16">
         Highlights of Our
         <br />
-        Real-Estate Expertise
+        <span className="text-red-500">Real-Estate Expertise</span>
       </h2>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
         {services.map((service, index) => (
-          <div key={index} className="flex flex-col gap-1 p-8">
+          <div key={index} className="flex flex-col gap-1 p-5 sm:p-8">
             <service.icon className="w-6 h-6 text-gray-800" strokeWidth={2.5} />
             <h3 className="text-md font-bold text-gray-900">{service.title}</h3>
             <p className="text-sm text-gray-600 leading-relaxed">{service.description}</p>

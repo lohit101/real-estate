@@ -35,14 +35,14 @@ export default function ListingsPage() {
   };
 
   return (
-    <div className="p-6 w-full">
+    <div className="p-5 sm:p-6 w-full">
       <h2 className="text-xl font-bold mb-3">Listings</h2>
       {loading ? (
         <div className="flex items-center justify-center w-full min-h-96">
           <LoaderCircle size={20} className="animate-spin" />
         </div>
       ) : (
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {listings.filter(listing => listing.is_featured).map((listing) => (
             <div key={listing.id} className="min-w-80 sm:min-w-96 max-w-80 sm:max-w-96 transition-all">
               <img src={listing.image_urls[0]} alt={listing.title} className="w-full h-60 object-cover rounded-lg" />

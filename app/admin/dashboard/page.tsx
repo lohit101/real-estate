@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { LoaderCircle } from "lucide-react";
 import ListingsPage from "../listings/page";
 import MessagesPage from "../messages/page";
+import Link from "next/link";
 
 export default function AdminPage() {
   const [loading, setLoading] = useState(true);
@@ -21,6 +22,7 @@ export default function AdminPage() {
         </div>
       ) : (
         <>
+        <Link href={'/admin/add'} className="bg-green-500 text-white py-2 px-4 rounded-full">+ Add Property</Link>
         <ListingsPage />
         <MessagesPage />
         </>

@@ -13,7 +13,7 @@ const CTA: React.FC = () => {
     <div className="container mx-auto p-5 sm:p-10">
       <div className="relative w-full bg-red-500 h-[40rem] max-h-[100rem] sm:h-[27.5rem] sm:max-h-[27.5rem] overflow-hidden rounded-3xl aspect-[2/1]">
         <img
-          src="https://images.unsplash.com/photo-1567428485548-c499e4931c10?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://images.unsplash.com/photo-1561223369-6e4b5e790972?q=80&w=2012&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Luxury modern property with electric vehicle"
           className="object-cover sm:-translate-y-1/3 h-full sm:h-auto"
         />

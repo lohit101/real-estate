@@ -34,7 +34,7 @@ export function Faq() {
             <h2 className="text-center text-[2.5rem] leading-tight font-bold text-[#0a1629] mb-16">
                 Frequently Asked
                 <br />
-                Questions
+                <span className="text-red-500">Questions</span>
             </h2>
 
             <Accordion type="single" collapsible className="w-full px-5 sm:px-20">

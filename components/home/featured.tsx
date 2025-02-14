@@ -38,7 +38,7 @@ export default function Featured() {
         <div className="flex flex-col gap-8 overflow-hidden py-20 pb-0">
             <div className="flex flex-col sm:flex-row sm:gap-10">
                 <div className="flex flex-col w-1/2 gap-2">
-                    <h2 className="text-4xl font-semibold">Popular Properties</h2>
+                    <h2 className="text-4xl font-semibold"><span className="text-red-500">Popular</span> Properties</h2>
                     <Link href={`/listings`} className="group flex flex-row gap-3 bg-black rounded-full my-3 py-2 px-4 hover:px-6 text-center text-sm transition-all duration-500 text-white w-max">
                         Explore All Properties
                         <p className="rotate-45 group-hover:rotate-90 transition-all duration-500">&uarr;</p>
