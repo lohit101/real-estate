@@ -82,7 +82,7 @@ export default function Categories() {
 
     return (
         <div className="container mx-auto px-5 sm:px-4 py-16">
-            <div className="flex flex-col sm:flex-row px-5 sm:px-20">
+            <div className="flex flex-col sm:flex-row sm:px-20">
                 <div className="flex flex-col w-full sm:w-1/2 gap-2">
                     <h2 className="text-4xl font-semibold">Discover <span className="text-red-500">Stylish Spaces</span> and <span className="text-red-500">Inspiring Details</span></h2>
                     <div className="flex flex-row items-center gap-3">

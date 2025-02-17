@@ -5,9 +5,42 @@ import { useRouter } from "next/navigation";
 
 const commercialTypes = ["Food Court", "Office Space", "Retail Shops", "Multiplex", "Service Apartment", "Restaurant"];
 const residentialTypes = ["Apartment", "House", "Villa", "Studio"];
-const cities = ["Gurgaon", "Sohna", "Dwarka", "Delhi", "Jhajjar", "Kharkhoda", "Mumbai", "Bangalore", "Hyderabad", "Ahmedabad", "Chennai", "Kolkata", "Surat", "Pune", "Jaipur", "Lucknow", "Kanpur", "Nagpur", "Indore", "Thane", "Bhopal", "Visakhapatnam", "Pimpri-Chinchwad", "Patna", "Vadodara", "Ghaziabad", "Ludhiana", "Agra", "Nashik", "Faridabad", "Meerut", "Rajkot", "Kalyan-Dombivli", "Vasai-Virar", "Varanasi", "Srinagar", "Aurangabad", "Dhanbad", "Amritsar", "Navi Mumbai", "Allahabad", "Ranchi", "Howrah", "Coimbatore", "Jabalpur", "Gwalior", "Vijayawada", "Jodhpur", "Madurai", "Raipur", "Kota", "Guwahati", "Chandigarh", "Solapur", "Hubli-Dharwad", "Mysore", "Tiruchirappalli", "Bareilly", "Aligarh", "Tiruppur", "Moradabad", "Jalandhar", "Bhubaneswar", "Salem", "Warangal", "Guntur", "Bhiwandi", "Saharanpur", "Gorakhpur", "Bikaner", "Amravati", "Noida", "Jamshedpur", "Bhilai", "Cuttack", "Firozabad", "Kochi", "Nellore", "Bhavnagar", "Dehradun", "Durgapur", "Asansol", "Rourkela", "Nanded", "Kolhapur", "Ajmer", "Akola", "Gulbarga", "Jamnagar", "Ujjain", "Loni", "Siliguri", "Jhansi", "Ulhasnagar", "Jammu", "Sangli-Miraj & Kupwad", "Mangalore", "Erode", "Belgaum", "Ambattur", "Tirunelveli", "Malegaon", "Gaya", "Jalgaon", "Udaipur", "Maheshtala", "Davanagere", "Kozhikode", "Kurnool", "Rajpur Sonarpur", "Bokaro", "South Dumdum", "Bellary", "Patiala", "Gopalpur", "Agartala", "Bhagalpur", "Muzaffarnagar", "Bhatpara", "Panihati", "Latur", "Dhule", "Rohtak", "Korba", "Bhilwara", "Brahmapur", "Muzaffarpur", "Ahmednagar", "Mathura", "Kollam", "Avadi", "Kadapa", "Kamarhati", "Sambalpur", "Bilaspur", "Shahjahanpur", "Satara", "Bijapur", "Rampur", "Shimoga", "Chandrapur", "Junagadh", "Thrissur", "Alwar", "Bardhaman", "Kulti", "Kakinada", "Nizamabad", "Parbhani", "Tumkur", "Khammam", "Ozhukarai", "Bihar Sharif", "Panipat", "Darbhanga", "Bally", "Aizawl", "Dewas", "Ichalkaranji", "Tirupati", "Karnal", "Bathinda", "Jalna", "Eluru", "Barasat", "Kirari Suleman Nagar", "Purnia", "Satna", "Mau", "Sonipat", "Farrukhabad", "Sagar", "Rourkela Industrial Township", "Durg", "Imphal", "Ratlam", "Hapur", "Arrah", "Karimnagar", "Anantapur", "Etawah", "Ambarnath", "North Dumdum", "Bharatpur", "Begusarai", "New Delhi", "Gandhidham", "Baranagar", "Tiruvottiyur", "Pondicherry", "Sikar", "Thoothukudi", "Rewa", "Mirzapur", "Raichur", "Pali", "Ramagundam", "Silchar", "Haridwar", "Vijayanagaram", "Tenali", "Nagercoil", "Sri Ganganagar", "Karawal Nagar", "Mango", "Thanjavur", "Bulandshahr", "Uluberia", "Katni", "Sambhal", "Singrauli", "Nadiad", "Secunderabad", "Naihati", "Yamunanagar", "Bidhannagar", "Pallavaram", "Bidar", "Munger", "Panchkula", "Burhanpur", "Raurkela", "Kharagpur", "Dindigul", "Gandhinagar", "Hospet", "Nangloi Jat", "Malda", "Ongole", "Deoghar", "Chapra", "Haldia", "Khandwa", "Nandyal", "Morena", "Amroha", "Anand", "Bhind", "Bhalswa Jahangir Pur", "Madhyamgram", "Bhiwani", "Berhampur", "Ambala", "Morbi", "Fatehpur", "Raebareli", "Khora", "Chittoor", "Bhusawal", "Orai", "Bahraich", "Phusro", "Vellore", "Mehsana", "Raiganj", "Sirsa", "Danapur", "Serampore", "Sultan Pur Majra", "Guna", "Jaunpur", "Panvel", "Shivpuri", "Surendranagar Dudhrej", "Unnao", "Chinsurah", "Alappuzha", "Kottayam", "Machilipatnam", "Shimla", "Adoni", "Udupi", "Katihar", "Proddatur", "Mahbubnagar", "Saharsa", "Dibrugarh", "Jorhat", "Hazaribagh", "Hindupur", "Nagaon", "Sasaram", "Hajipur", "Giridih", "Bhimavaram", "Kumbakonam", "Dehri", "Madanapalle", "Siwan", "Bettiah", "Guntakal", "Srikakulam", "Motihari", "Dharmavaram", "Medininagar", "Gudivada", "Phagwara", "Pudukkottai", "Chittoor", "Suryapet", "Miryalaguda", "Tadipatri", "Karaikudi", "Kishanganj", "Jamalpur", "Ballia", "Kavali", "Tadepalligudem", "Amalapuram", "Buxar", "Tezpur", "Jehanabad", "Aurangabad", "Gangtok", "Karaikal", "Hosur", "Nagapattinam", "Port Blair", "Neyveli", "Kavaratti", "Kagaznagar", "Kandukur", "Mandapeta", "Tanuku", "Rayachoti", "Kavali", "Tadepalligudem", "Amalapuram", "Buxar", "Tezpur", "Jehanabad", "Aurangabad", "Gangtok", "Karaikal", "Hosur", "Nagapattinam", "Port Blair", "Neyveli", "Kavaratti", "Kagaznagar", "Kandukur", "Mandapeta", "Tanuku", "Rayachoti"];
+const cities = [
+  "Ahmedabad",
+  "Bangalore",
+  "Bhopal",
+  "Chennai",
+  "Delhi",
+  "Dwarka",
+  "Faridabad",
+  "Ghaziabad",
+  "Goa",
+  "Gurgaon",
+  "Hyderabad",
+  "Indore",
+  "Jaipur",
+  "Jhajjar",
+  "Kanpur",
+  "Kharkhoda",
+  "Kolkata",
+  "Lucknow",
+  "Mumbai",
+  "Nagpur",
+  "Nashik",
+  "Patna",
+  "Pimpri-Chinchwad",
+  "Pune",
+  "Rajkot",
+  "Sohna",
+  "Surat",
+  "Thane",
+  "Vadodara",
+  "Varanasi",
+  "Visakhapatnam"
+];
 const furnishedOptions = ["Fully Furnished", "Semi-Furnished", "Unfurnished"];
 const amenitiesList = ["Parking", "Gym", "Swimming Pool", "Security", "Play Area"];
+const propertyAgeOptions = ["Under Construction", "Ready for Possession", "1 to 5 years old", "5 to 10 years old", "More than 10 years old"];
 
 export default function AddProperty() {
   const router = useRouter();
@@ -24,7 +57,7 @@ export default function AddProperty() {
     square_feet: 0,
     furnished_status: furnishedOptions[0],
     amenities: [] as string[],
-    property_age: 0,
+    property_age: propertyAgeOptions[0],
     is_featured: false, // New field for featured property
   });
   const [imageFiles, setImageFiles] = useState<File[]>([]);
@@ -253,14 +286,19 @@ export default function AddProperty() {
       </div>
       <div className="mb-4">
         <label htmlFor="property_age" className="block text-sm font-medium text-gray-700">Property Age</label>
-        <input
-          type="number"
+        <select
           id="property_age"
           name="property_age"
           value={listing.property_age}
           onChange={handleInputChange}
           className="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-        />
+        >
+          {propertyAgeOptions.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
       </div>
       <div className="mb-4">
         <label htmlFor="is_featured" className="block text-sm font-medium text-gray-700">Featured Property</label>

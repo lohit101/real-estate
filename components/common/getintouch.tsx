@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { toast } from "sonner";
 
 export default function GetinTouchModal() {
   const [name, setName] = useState("");
@@ -35,6 +36,9 @@ export default function GetinTouchModal() {
       setName("");
       setEmail("");
       setMessage("");
+      toast("Message Sent", {
+        description: "Your message has been sent successfully. We'll get back to you as soon as possible.",
+      })
     }
 
     setLoading(false);
@@ -95,6 +99,7 @@ export default function GetinTouchModal() {
                 className="col-span-3 border border-gray-200 rounded-2xl text-sm p-2 w-full"
                 placeholder="Your message here"
                 required
+                rows={5}
               />
             </div>
           </div>
@@ -105,7 +110,6 @@ export default function GetinTouchModal() {
             </button>
           </DialogFooter>
         </form>
-        {success && <p className="text-green-500 mt-4 text-xs">Message sent successfully!</p>}
       </DialogContent>
     </Dialog>
   );
