@@ -68,6 +68,10 @@ export default function Navbar() {
             </div>
           ))}
 
+          <div className="hidden sm:flex">
+            <GetinTouchModal />
+          </div>
+
           {/* MOBILE MENU */}
           <div className={`sm:hidden fixed top-0 left-0 w-screen h-screen flex bg-red-500/50 backdrop-blur-sm z-50 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'} transition-all duration-300`}>
             <div className={`flex flex-col w-full ${menuOpen ? 'h-96' : 'h-0'} bg-white gap-10 p-5 transition-all duration-500 delay-300`}>
