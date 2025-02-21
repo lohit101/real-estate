@@ -1,7 +1,7 @@
 export default function WhatsappBtn() {
     return (
         <a
-            href="https://wa.me/919999999999"
+            href="https://wa.me/917838445446"
             target="_blank"
             rel="noopener noreferrer"
             className="group fixed right-4 bottom-4 z-50 flex flex-row gap-1 items-center bg-green-400 py-1 px-2 rounded-full h-12 w-12 hover:w-56 transition-all duration-200"
