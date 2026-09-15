@@ -51,7 +51,7 @@ The public listings, contact forms, and admin authentication require that config
 
 ## Visual styling
 
-Public-page refinements live in `app/globals.css` under `.site-surface`, with named hooks for the navigation, search, property cards, expertise, categories, FAQ, and footer. They preserve the existing section order, dimensions, grids, breakpoints, images, and Montserrat font. The CMS has its own scoped visual system in `app/admin/admin.css`.
+Public-page refinements live in `app/globals.css` under `.site-surface`, with named hooks for the search, property cards, expertise, categories, FAQ, and footer. They preserve the existing section order, dimensions, grids, breakpoints, images, and Montserrat font. The navbar retains its original appearance and scroll behavior, with compatible Tailwind 4 utilities and corrected category links. The CMS has its own scoped visual system in `app/admin/admin.css`.
 
 
 ## CMS workspace

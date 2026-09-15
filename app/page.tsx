@@ -12,19 +12,21 @@ import Navbar from "@/components/home/navbar";
 
 export default function Home() {
   return (
-    <div className="site-surface">
-      <WhatsappBtn />
+    <>
       <Navbar />
-      {/* <GetinTouchModal /> */}
-      <Header />
-      <div className="flex sm:px-20">
-        <Featured />
+      <div className="site-surface">
+        <WhatsappBtn />
+        {/* <GetinTouchModal /> */}
+        <Header />
+        <div className="flex sm:px-20">
+          <Featured />
+        </div>
+        <Highlights />
+        <Cta />
+        <Categories />
+        <Faq />
+        <Footer />
       </div>
-      <Highlights />
-      <Cta />
-      <Categories />
-      <Faq />
-      <Footer />
-    </div>
+    </>
   )
 }

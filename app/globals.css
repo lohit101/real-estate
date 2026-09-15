@@ -238,28 +238,6 @@
 .site-surface :is(a, button).hover\:px-6:hover { padding-inline: 1rem; }
 .site-surface button:disabled { cursor: not-allowed; }
 
-/* A solid scrolled surface keeps navigation readable over every section. */
-.site-nav {
-  background: linear-gradient(180deg, #15171bbd, #15171b00);
-  transition: background-color 220ms ease, box-shadow 220ms ease;
-}
-.site-nav[data-solid="true"] {
-  background: #fffffff5;
-  box-shadow: 0 1px 0 #20212412, 0 4px 20px #20212408;
-  backdrop-filter: blur(16px);
-}
-.site-nav[data-solid="true"] > .fixed { opacity: 0; }
-.site-nav[data-solid="true"] h1 { color: var(--site-ink); }
-.site-nav[data-solid="true"] p { color: var(--site-muted); }
-.site-nav :is(a, h1, p) { filter: none; }
-.site-nav .contact-trigger {
-  background: var(--site-red);
-  color: white;
-  box-shadow: inset 0 1px 0 #ffffff26;
-}
-.site-nav .contact-trigger:hover { background: var(--site-red-hover); }
-.site-nav .contact-trigger :is(p, span) { color: white; }
-
 /* Image treatment and the existing two-row search form. */
 .hero-image { background-color: #18191c; }
 .hero-image > img { filter: brightness(0.74) saturate(0.8); }
@@ -366,7 +344,7 @@
 }
 @media (prefers-reduced-transparency: reduce) {
   .property-search { background: #d9d9dc; backdrop-filter: none; }
-  .partner-panel, .site-nav[data-solid="true"] { background: white; backdrop-filter: none; }
+  .partner-panel { background: white; backdrop-filter: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   .site-surface *, .site-surface *::before, .site-surface *::after {
