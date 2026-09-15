@@ -1,0 +1,61 @@
+export const commercialTypes = [
+  "Food Court",
+  "Office Space",
+  "Retail Shops",
+  "Multiplex",
+  "Service Apartment",
+  "Restaurant",
+];
+export const residentialTypes = ["Apartment", "House", "Villa", "Studio"];
+export const cities = [
+  "Ahmedabad",
+  "Bangalore",
+  "Bhopal",
+  "Chennai",
+  "Delhi",
+  "Dwarka",
+  "Faridabad",
+  "Ghaziabad",
+  "Goa",
+  "Gurgaon",
+  "Hyderabad",
+  "Indore",
+  "Jaipur",
+  "Jhajjar",
+  "Kanpur",
+  "Kharkhoda",
+  "Kolkata",
+  "Lucknow",
+  "Mumbai",
+  "Nagpur",
+  "Nashik",
+  "Patna",
+  "Pimpri-Chinchwad",
+  "Pune",
+  "Rajkot",
+  "Sohna",
+  "Surat",
+  "Thane",
+  "Vadodara",
+  "Varanasi",
+  "Visakhapatnam",
+];
+export const furnishedOptions = [
+  "Fully Furnished",
+  "Semi-Furnished",
+  "Unfurnished",
+];
+export const amenitiesList = [
+  "Parking",
+  "Gym",
+  "Swimming Pool",
+  "Security",
+  "Play Area",
+];
+export const propertyAgeOptions = [
+  "Under Construction",
+  "Ready for Possession",
+  "1 to 5 years old",
+  "5 to 10 years old",
+  "More than 10 years old",
+];

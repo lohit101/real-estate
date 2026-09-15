@@ -1,8 +1,5 @@
 "use client"
 
-import Image from "next/image";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
-import { Card, CardContent } from "../ui/card";
 import { Suspense, useEffect, useState } from "react";
 import Search from "./search";
 
@@ -27,7 +24,7 @@ export default function Header() {
 
     return (
         <>
-            <div className="absolute z-10 top-1/4 flex sm:flex w-full">
+            <div className="hero-content absolute z-10 top-1/4 flex sm:flex w-full">
                 <div className="flex flex-col gap-5 sm:gap-10 mx-5 sm:mx-auto w-full sm:w-2/3">
                     <h1 className="text-white text-3xl sm:text-[3rem] font-medium drop-shadow-lg text-center sm:text-start">Find your dream property today</h1>
                     <Suspense>
@@ -36,10 +33,11 @@ export default function Header() {
                 </div>
             </div>
 
-            <div className={`relative flex h-[100vh] w-[100vw] bg-black overflow-hidden box-border transition-all ${isScrolled ? "p-10 pt-0 duration-1000" : "p-0 duration-500"}`}>
+            <div className={`hero-image relative flex h-screen w-screen bg-black overflow-hidden box-border transition-all ${isScrolled ? "p-10 pt-0 duration-1000" : "p-0 duration-500"}`}>
                 <img
                     src="https://images.unsplash.com/photo-1465804575741-338df8554e02?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Background Image"
+                    alt="Architectural exterior of a residential property"
+                    fetchPriority="high"
                     className={`w-full object-cover object-center transition-all duration-1000 ${isScrolled ? 'rounded-xl' : 'rounded-none'}`}
                 />
 
@@ -67,7 +65,7 @@ export default function Header() {
                 </Carousel> */}
             </div>
 
-            <div className="flex flex-row flex-wrap items-center justify-center gap-10 sm:gap-28 p-10 pb-20 bg-black">
+            <div className="property-stats flex flex-row flex-wrap items-center justify-center gap-10 sm:gap-28 p-10 pb-20 bg-black">
                 <div className="flex flex-col gap-1">
                     <p className="text-5xl font-semibold text-white">18<span className="text-red-500">K</span></p>
                     <p className="text-white/60 text-sm">Renters</p>

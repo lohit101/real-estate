@@ -1,41 +1,116 @@
 "use client";
+
 import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { User } from "@supabase/auth-helpers-nextjs";
+import { ArrowLeft, Building2, LoaderCircle, LogIn } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 export default function LoginPage() {
-  const [user, setUser] = useState<User | null>(null);
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
-
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   useEffect(() => {
-    const getUser = async () => {
-      const { data, error } = await supabase.auth.getUser();
-      if (data?.user) {
-        setUser(data.user);
-        router.push("/admin/dashboard"); // Redirect to login if not authenticated
-      }
+    let active = true;
+    supabase.auth
+      .getUser()
+      .then(({ data }) => {
+        if (active && data.user) router.replace("/admin/dashboard");
+      })
+      .catch(() => {});
+    return () => {
+      active = false;
     };
-    getUser();
-  }, []);
+  }, [router]);
 
-  const handleLogin = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    if (!error) router.push("/admin/dashboard"); // Redirect after login
-    else alert("Login failed!");
-  };
+  async function login(event: React.FormEvent) {
+    event.preventDefault();
+    setLoading(true);
+    setError("");
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: email.trim(),
+        password,
+      });
+      if (error) {
+        setError(
+          "We couldn't sign you in. Check your email and password, then try again.",
+        );
+        return;
+      }
+      router.replace("/admin/dashboard");
+    } catch {
+      setError(
+        "Unable to connect. Please check your connection and try again.",
+      );
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
-    <div className="flex min-h-screen justify-center items-center">
-      <form onSubmit={handleLogin} className="p-6 bg-white shadow-md rounded">
-        <h2 className="text-xl font-bold mb-4">Admin Login</h2>
-        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required className="w-full p-2 border rounded mb-2"/>
-        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required className="w-full p-2 border rounded mb-2"/>
-        <button type="submit" className="w-full bg-blue-500 text-white py-2 rounded">Login</button>
-      </form>
-    </div>
+    <main className="cms-login">
+      <div className="cms-login-card">
+        <Link href="/" className="cms-brand">
+          <Building2 size={28} strokeWidth={1.5} />
+          <div>
+            <strong>1o1 Realtor</strong>
+            <span>Property workspace</span>
+          </div>
+        </Link>
+        <h1>Welcome back</h1>
+        <p>Sign in to manage properties and enquiries.</p>
+        <form onSubmit={login}>
+          <label className="cms-field" htmlFor="email">
+            Email address
+            <input
+              id="email"
+              type="email"
+              autoComplete="username"
+              placeholder="you@company.com"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
+              required
+              disabled={loading}
+            />
+          </label>
+          <label className="cms-field" htmlFor="password">
+            Password
+            <input
+              id="password"
+              type="password"
+              autoComplete="current-password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              required
+              disabled={loading}
+            />
+          </label>
+          {error && (
+            <p className="cms-inline-error" role="alert">
+              {error}
+            </p>
+          )}
+          <button
+            type="submit"
+            className="cms-button cms-primary"
+            disabled={loading}
+          >
+            {loading ? (
+              <LoaderCircle size={16} className="animate-spin" />
+            ) : (
+              <LogIn size={16} />
+            )}
+            {loading ? "Signing in…" : "Sign in"}
+          </button>
+        </form>
+        <Link className="cms-text-link" href="/">
+          <ArrowLeft size={14} />
+          Back to website
+        </Link>
+      </div>
+    </main>
   );
 }

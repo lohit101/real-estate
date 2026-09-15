@@ -1,3 +1,7 @@
-import { createBrowserSupabaseClient } from '@supabase/auth-helpers-nextjs';
+import { createBrowserClient } from "@supabase/ssr";
 
-export const supabase = createBrowserSupabaseClient();
+// Cookie-backed browser sessions, using Supabase's supported auth client.
+export const supabase = createBrowserClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+);

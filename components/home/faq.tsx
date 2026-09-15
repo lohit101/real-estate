@@ -30,7 +30,7 @@ export function Faq() {
     ];
 
     return (
-        <div className="container mx-auto px-5 sm:px-40 py-16">
+        <div className="faq-section container mx-auto px-5 sm:px-40 py-16">
             <h2 className="text-center text-[2.5rem] leading-tight font-bold text-[#0a1629] mb-16">
                 Frequently Asked
                 <br />

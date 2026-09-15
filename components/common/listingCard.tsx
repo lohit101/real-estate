@@ -19,7 +19,7 @@ type ListingCardProps = {
 
 const ListingCard: React.FC<ListingCardProps> = ({ listing }) => {
     return (
-        <div key={listing.id} className="group bg-white min-w-96 max-w-96 border transition-all hover:shadow-xl">
+        <div key={listing.id} className="property-card group bg-white min-w-96 max-w-96 border transition-all hover:shadow-xl">
             <img src={listing.image_urls[0]} alt={listing.title} className="w-full h-40 object-cover rounded" />
             <div className="flex flex-row items-start justify-between gap-4 p-3 w-full">
                 <div className="flex flex-1 flex-col">

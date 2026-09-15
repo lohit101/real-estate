@@ -1,8 +1,6 @@
 "use client"
 
 import React from 'react';
-import Image from "next/image"
-import Link from 'next/link';
 import useInView from '@/hooks/useInView';
 import GetinTouchModal from './getintouch';
 
@@ -10,18 +8,18 @@ const CTA: React.FC = () => {
   const [ctaRef, isVisible] = useInView(0.1, 500); // Adjust the delay as needed
 
   return (
-    <div className="container mx-auto p-5 sm:p-10">
-      <div className="relative w-full bg-red-500 h-[40rem] max-h-[100rem] sm:h-[27.5rem] sm:max-h-[27.5rem] overflow-hidden rounded-3xl aspect-[2/1]">
+    <div className="partner-section container mx-auto p-5 sm:p-10">
+      <div className="relative w-full bg-red-500 h-160 max-h-[100rem] sm:h-110 sm:max-h-110 overflow-hidden rounded-3xl aspect-2/1">
         <img
           src="https://images.unsplash.com/photo-1561223369-6e4b5e790972?q=80&w=2012&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           alt="Luxury modern property with electric vehicle"
           className="object-cover sm:-translate-y-1/3 h-full sm:h-auto"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white/10" />
+        <div className="absolute inset-0 bg-linear-to-r from-transparent to-white/10" />
 
         <div
           ref={ctaRef}
-          className={`absolute m-3 sm:m-0 sm:right-5 bottom-0 sm:bottom-5 flex flex-col gap-2 max-w-[600px] bg-white/70 backdrop-blur-md p-7 rounded-2xl transition-opacity duration-500 ${
+          className={`partner-panel absolute m-3 sm:m-0 sm:right-5 bottom-0 sm:bottom-5 flex flex-col gap-2 max-w-[600px] bg-white/70 backdrop-blur-md p-7 rounded-2xl transition-opacity duration-500 ${
             isVisible ? 'opacity-100' : 'opacity-0'
           }`}
         >

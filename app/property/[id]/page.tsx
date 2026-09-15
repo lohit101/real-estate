@@ -2,13 +2,10 @@
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import { supabase } from "@/lib/supabase";
-import { Share2, Heart, Scaling, ShowerHead, Bed, MapPinHouse, LoaderCircle, Star, Clock } from "lucide-react";
-import Image from "next/image";
+import { Share2, Scaling, ShowerHead, Bed, MapPinHouse, LoaderCircle, Star, Clock } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Label } from "@/components/ui/label";
-import Featured from "@/components/home/featured";
 import { Separator } from "@/components/ui/separator";
 
 type Listing = {
@@ -34,7 +31,6 @@ export default function PropertyListing() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
-  const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,7 +41,6 @@ export default function PropertyListing() {
     if (error) {
       console.error("Error submitting message:", error);
     } else {
-      setSuccess(true);
       setName("");
       setEmail("");
       setMessage("");
@@ -57,7 +52,7 @@ export default function PropertyListing() {
   useEffect(() => {
     if (!id) return;
     const fetchProperty = async () => {
-      let { data, error } = await supabase
+      const { data, error } = await supabase
         .from("listings")
         .select("*")
         .eq("id", id)
@@ -102,7 +97,7 @@ export default function PropertyListing() {
 
   return (
     <>
-      <div className="container mx-auto p-4 md:p-6 mt-16 sm:mt-20 sm:w-[90%]">
+      <div className="site-surface property-page container mx-auto p-4 md:p-6 mt-16 sm:mt-20 sm:w-[90%]">
         <img
           src={property.image_urls[0]}
           alt="Property exterior"
@@ -134,7 +129,7 @@ export default function PropertyListing() {
                 <div className="flex flex-col gap-1">
                   <h1 className="text-2xl font-semibold">{property.title}</h1>
                   {property.is_featured && (
-                    <div className="flex items-center gap-1 bg-gradient-to-br from-purple-600 to-purple-700 rounded-md py-1 px-2 text-white w-max">
+                    <div className="flex items-center gap-1 bg-red-500 rounded-md py-1 px-2 text-white w-max">
                       <Star size={10} fill="white" />
                       <p className="text-white text-[0.55rem] font-medium uppercase">This is a featured property</p>
                     </div>

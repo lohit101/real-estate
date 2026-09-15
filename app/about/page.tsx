@@ -1,7 +1,5 @@
-import Image from "next/image"
 import Link from "next/link"
-import { Play, Star } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Star } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import Navbar from "@/components/home/navbar"
 import Footer from "@/components/common/footer"
@@ -10,7 +8,7 @@ export default function AboutPage() {
     return (
         <>
             <Navbar />
-            <div className="min-h-screen bg-white text-black">
+            <div className="site-surface about-page min-h-screen bg-white text-black">
                 {/* Hero Section with Wave Background */}
                 <div className="relative h-[300px] flex items-center justify-center overflow-hidden">
                     <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1575041051612-323e644ca1b8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-cover bg-center" />
@@ -79,7 +77,7 @@ export default function AboutPage() {
                             </div>
 
                             <p className="text-gray-400">
-                                With our extensive knowledge of the real estate market and expertise across numerous projects, 1O1 Realtor is your go-to solution for all real estate investment decisions. Embark on a journey with us, full of endless possibilities. We offer a wide range of investment options to match your financial goals, whether you're looking for growth, stability, or a diverse portfolio. We're dedicated to helping you shape your financial future just the way you envision it. Your goals, dreams, and choices matter to us – we’re here to make them a reality. We have a proven track record of selecting top-notch projects, ensuring seamless transactions, providing post-sales support, and delivering projects at competitive rates.
+                                With our extensive knowledge of the real estate market and expertise across numerous projects, 1O1 Realtor is your go-to solution for all real estate investment decisions. Embark on a journey with us, full of endless possibilities. We offer a wide range of investment options to match your financial goals, whether you&apos;re looking for growth, stability, or a diverse portfolio. We&apos;re dedicated to helping you shape your financial future just the way you envision it. Your goals, dreams, and choices matter to us – we’re here to make them a reality. We have a proven track record of selecting top-notch projects, ensuring seamless transactions, providing post-sales support, and delivering projects at competitive rates.
                             </p>
 
                             {/* Stats */}
