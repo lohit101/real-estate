@@ -216,7 +216,7 @@
   color: var(--site-muted);
 }
 .site-surface .text-\[\#0a1629\] { color: var(--site-ink); }
-.site-surface [data-orientation="horizontal"] { background-color: var(--site-line); }
+.site-surface [data-slot="separator"][data-orientation="horizontal"] { background-color: var(--site-line); }
 .site-surface ::selection { background: #f3cece; color: #202124; }
 
 .site-surface :is(a, button, input, select, textarea):focus-visible {
@@ -327,8 +327,6 @@
 .faq-section [role="region"] > div { font-weight: 400; }
 .contact-dialog { border-color: #e4e4e7; box-shadow: 0 24px 80px #16171a30; }
 .about-page .aspect-video img { filter: saturate(0.85); }
-.property-page .bg-white { box-shadow: 0 2px 14px #20212408; }
-.property-page [data-state="active"][role="tab"] { border-color: var(--site-red); color: var(--site-red); }
 .site-footer { color: white; background: #18191c; }
 .site-footer .text-zinc-500 { color: #a9a9b1; }
 .site-footer .border-gray-500 { border-color: #ffffff21; }

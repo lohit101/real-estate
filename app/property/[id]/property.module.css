@@ -1,0 +1,554 @@
+/* Preserve the two-column property layout and brand. Taste: variance 4,
+   motion 2 (interaction feedback), density 4. Surfaces 16px, controls 8px. */
+.shell {
+  color-scheme: light;
+  background: #f0f1f3;
+}
+.page {
+  position: relative;
+  isolation: isolate;
+  --detail-surface: #fff;
+  --detail-ink: #202124;
+  --detail-secondary: #50515a;
+  --detail-line: #e3e3e7;
+  --detail-accent: #b92e32;
+  --detail-subtle: #f7f7f8;
+  color: var(--detail-ink);
+  max-width: 1400px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 100px 24px 56px;
+}
+.page :is(button, a, input, textarea):focus-visible {
+  outline: 2px solid var(--detail-accent);
+  outline-offset: 4px;
+}
+.page button {
+  cursor: pointer;
+}
+.page button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--detail-ink);
+}
+.backLink:hover {
+  color: var(--detail-accent);
+}
+.reference {
+  color: var(--detail-secondary);
+  font-size: 12px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+.mainColumn {
+  min-width: 0;
+  display: grid;
+  gap: 22px;
+}
+.gallery {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--detail-line);
+}
+.gallery img,
+.thumbnail img {
+  object-fit: cover;
+}
+.photoFallback {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--detail-secondary);
+  font-size: 13px;
+}
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 10px 4px 4px;
+}
+.thumbnail {
+  flex: 0 0 76px;
+  height: 58px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid transparent;
+  background: var(--detail-subtle);
+}
+.thumbnail[aria-pressed="true"] {
+  border-color: var(--detail-accent);
+  outline: 2px solid var(--detail-surface);
+  outline-offset: -4px;
+}
+.thumbnail .photoFallback span {
+  display: none;
+}
+.summary,
+.details,
+.enquiry {
+  background: rgb(255 255 255 / 86%);
+  border: 1px solid rgb(255 255 255 / 95%);
+  border-radius: 16px;
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 10px 32px #30374408;
+}
+.summary {
+  padding: 28px;
+}
+.titleRow {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: start;
+}
+.titleRow > div {
+  min-width: 0;
+}
+.featured {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--detail-accent);
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.summary h1 {
+  font-size: clamp(24px, 2.3vw, 32px);
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+.location {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 12px;
+  color: var(--detail-secondary);
+  font-size: 13px;
+}
+.location svg {
+  flex-shrink: 0;
+}
+.shareButton {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--detail-line);
+  border-radius: 8px;
+  background: var(--detail-surface);
+}
+.shareButton:hover {
+  background: var(--detail-subtle);
+}
+.shareStatus {
+  font-size: 12px;
+  color: var(--detail-secondary);
+}
+.shareStatus:not(:empty) {
+  margin-top: 12px;
+}
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px 32px;
+  padding-top: 24px;
+  margin-top: 24px;
+  border-top: 1px solid var(--detail-line);
+}
+.stats:empty {
+  display: none;
+}
+.stats > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.stats svg {
+  color: var(--detail-secondary);
+  flex-shrink: 0;
+  stroke-width: 1.6;
+}
+.stats strong {
+  display: block;
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 600;
+}
+.stats small {
+  display: block;
+  font-size: 11px;
+  color: var(--detail-secondary);
+  margin-top: 3px;
+}
+.details {
+  overflow: hidden;
+}
+.tabList {
+  display: flex;
+  justify-content: start;
+  gap: 26px;
+  height: auto;
+  padding: 0 28px;
+  width: 100%;
+  border-radius: 0;
+  background: transparent;
+  border-bottom: 1px solid var(--detail-line);
+}
+.tab {
+  display: inline-flex;
+  gap: 8px;
+  padding: 18px 0 16px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  font-size: 13px;
+  color: var(--detail-secondary);
+  box-shadow: none;
+  background: transparent;
+}
+.tab[data-state="active"] {
+  border-bottom-color: var(--detail-accent);
+  color: var(--detail-accent);
+  background: transparent;
+  box-shadow: none;
+}
+.tab span {
+  font-size: 11px;
+}
+.tabPanel {
+  background: transparent;
+  margin: 0;
+  padding: 28px;
+}
+.tabPanel h2 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.description {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--detail-ink);
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  max-width: 70ch;
+  margin-top: 16px;
+}
+.factsSection {
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--detail-line);
+}
+.factsSection h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 20px;
+}
+.facts dt {
+  font-size: 12px;
+  color: var(--detail-secondary);
+}
+.facts dd {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 5px;
+  overflow-wrap: anywhere;
+}
+.amenities {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  padding: 0;
+  margin: 24px 0 4px;
+  list-style: none;
+}
+.amenities li {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+.amenities svg {
+  color: var(--detail-accent);
+  flex-shrink: 0;
+}
+.enquiry {
+  position: sticky;
+  top: 96px;
+  padding: 28px;
+  box-shadow:
+    inset 0 1px 0 #fff,
+    0 12px 36px #3037440c;
+}
+.priceBlock {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--detail-line);
+}
+.priceBlock > span {
+  color: var(--detail-secondary);
+  font-size: 12px;
+}
+.priceBlock p {
+  font-size: clamp(24px, 2.4vw, 34px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.3;
+  margin-top: 6px;
+}
+.enquiry h2 {
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+.enquiryIntro {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--detail-secondary);
+  margin: 10px 0 24px;
+}
+.field {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.field label {
+  font-size: 12px;
+  font-weight: 500;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  min-width: 0;
+  background: var(--detail-surface);
+  color: var(--detail-ink);
+  border: 1px solid #b7b8c0;
+  border-radius: 8px;
+  padding: 11px 12px;
+  font: inherit;
+  font-size: 13px;
+}
+.field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+.field :is(input, textarea)::placeholder {
+  color: #686973;
+  opacity: 1;
+}
+.primaryButton {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 13px 16px;
+  border-radius: 8px;
+  border: 0;
+  background: var(--detail-accent);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background-color 160ms ease;
+}
+.primaryButton:hover {
+  background: #9d2428;
+}
+.primaryButton:active {
+  transform: translateY(1px);
+}
+.formFeedback,
+.formError {
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.formFeedback {
+  display: flex;
+  gap: 8px;
+  align-items: start;
+}
+.formFeedback svg {
+  flex-shrink: 0;
+}
+.formError {
+  color: var(--detail-accent);
+}
+.empty {
+  min-height: 55vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+}
+.empty h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+.empty p {
+  color: var(--detail-secondary);
+}
+.empty .primaryButton {
+  width: auto;
+}
+.skeleton {
+  background: var(--detail-line);
+  border-radius: 16px;
+}
+.loadingSummary {
+  height: 190px;
+  margin-top: 22px;
+}
+.loadingEnquiry {
+  height: 590px;
+}
+@media (max-width: 1100px) {
+  .page {
+    width: 96%;
+  }
+  .grid {
+    gap: 20px;
+  }
+  .enquiry {
+    padding: 22px;
+  }
+}
+@media (max-width: 767px) {
+  .page {
+    width: 100%;
+    padding: 88px 16px 36px;
+  }
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .gallery {
+    height: 280px;
+  }
+  .summary,
+  .enquiry,
+  .tabPanel {
+    padding: 22px;
+  }
+  .summary h1 {
+    font-size: 25px;
+  }
+  .tabList {
+    padding-inline: 22px;
+  }
+  .enquiry {
+    position: static;
+  }
+  .stats {
+    gap: 24px;
+  }
+  .stats strong {
+    font-size: 15px;
+  }
+  .field input,
+  .field textarea {
+    font-size: 16px;
+  }
+  .description {
+    font-size: 14px;
+  }
+  .loadingEnquiry {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Keep shared recommendations consistent with the property page's theme. */
+.related {
+  background: white;
+}
+.shell :global(.site-footer) a {
+  min-height: 24px;
+  display: inline-flex;
+  align-items: center;
+}
+.shell :global(.site-footer) a:has(svg) {
+  min-width: 24px;
+}
+.loadingBreadcrumb {
+  height: 20px;
+  width: 120px;
+}
+.loadingDetails {
+  height: 360px;
+  margin-top: 22px;
+}
+
+/* A bounded photo wash gives the white surfaces depth without tinting the text. */
+.backdrop {
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+  inset: 80px 0 auto;
+  height: 850px;
+  background-position: center top;
+  background-size: cover;
+  opacity: 0.2;
+  filter: blur(45px) saturate(0.65);
+  mask-image: linear-gradient(to bottom, #000 15%, transparent 100%);
+}
+@media (prefers-reduced-transparency: reduce) {
+  .backdrop {
+    display: none;
+  }
+  .summary,
+  .details,
+  .enquiry {
+    background: #fff;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border-color: var(--detail-line);
+  }
+}

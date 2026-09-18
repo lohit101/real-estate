@@ -30,13 +30,13 @@ export default function Footer() {
                         <p className="text-xs">support@1o1realtor.com</p>
                     </a>
                     <div className="flex flex-row items-center gap-2">
-                        <a href="https://www.instagram.com/1o1realtor/" className="group">
+                        <a aria-label="1o1 Realtor on Instagram" href="https://www.instagram.com/1o1realtor/" className="group">
                             <Instagram size={18} className="text-zinc-500 group-hover:text-white transition-all" />
                         </a>
-                        <a href="https://www.facebook.com/p/1O1-Realtor-Pvt-Ltd-100064016206296/" className="group">
+                        <a aria-label="1o1 Realtor on Facebook" href="https://www.facebook.com/p/1O1-Realtor-Pvt-Ltd-100064016206296/" className="group">
                             <Facebook size={18} className="text-zinc-500 group-hover:text-white transition-all" />
                         </a>
-                        <a href="https://in.linkedin.com/company/1o1-realtor-pvt-ltd" className="group">
+                        <a aria-label="1o1 Realtor on LinkedIn" href="https://in.linkedin.com/company/1o1-realtor-pvt-ltd" className="group">
                             <Linkedin size={18} className="text-zinc-500 group-hover:text-white transition-all" />
                         </a>
                     </div>
